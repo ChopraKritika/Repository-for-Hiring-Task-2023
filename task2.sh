@@ -9,7 +9,7 @@ echo "scale=2; `zcat $file|grep -v ">"|tr -d "\t,\n"|wc -c`  /  `zcat $file|grep
 # Explanation:
 # (1)echo: Print the result of the following calculation to a new line
 # (2)scale=2: Sets the decimal points to 2 for the resulting number to be calculated. It yields the result as 316.85, if no decimal points are required the scale can be set to 0 or other commands like expr can be used 
-# (3)`zcat $file|grep -v ">"|tr -d "\t,\n"|wc -c`: Calculates the number of amino acids. Reads the file via zcat, identifies all sequence identifiers & reverses it via grep -v to select all amino acids, removes the tab and newline characters from the sequences via tr, counts the number of amino acids present by wc -c.
+# (3)`zcat $file|grep -v ">"|tr -d "\t,\n"|wc -c`: Calculates the number of amino acids. Reads the file via zcat, identifies all sequence identifiers starting from ">" & reverses it via grep -v to select all amino acid sequences, removes the tab and newline characters from the sequences via tr, counts the number of amino acids present by wc -c.
 # (4)/: sign of division
 # (5)`zcat $file|grep ">" -c`: Calculates the number of protein sequences. Reads the file via zcat, identifies all the sequences and counts them via grep -c.
 # (6)bc: Divides the number of amino acids(3) with number of protein sequences(5) and present the result upto two decimal places.
