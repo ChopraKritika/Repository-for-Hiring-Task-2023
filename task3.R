@@ -6,6 +6,6 @@ graph = ggplot(file[which(file$chromosome != "-" & !grepl("\\|", file$chromosome
 	xlab("Chromosomes")+   #Setting x-axis label
 	ylab("Gene count")+   #Setting y-axis label
 	ggtitle("Number of genes in each chromosome")+   #Setting title of the plot	
-	theme_classic()+   #Adding a particular theme to plot (for specific layout and transparent background as depicted in the given reference graph)
+	theme_classic()+   #Adding a particular theme to the plot (for specific layout and transparent background as depicted in the given reference graph)
 	theme(plot.title = element_text(hjust=0.5))   #Center aligning the title of the plot
 ggsave(graph, filename = "Graph.pdf")   #Saving the plot to a PDF file
